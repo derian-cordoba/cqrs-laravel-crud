@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 final readonly class ModelResponse implements Responsable
 {
     public function __construct(
-        public JsonResource $data,
+        public JsonResource | array $data,
         public int $status = Response::HTTP_OK,
     ) {
         //
