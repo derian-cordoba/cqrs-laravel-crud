@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\Address\DestroyController;
 use App\Http\Controllers\Api\V1\Address\FetchController;
+use App\Http\Controllers\Api\V1\Address\FindController;
 use App\Http\Controllers\Api\V1\Address\StoreController;
 use App\Http\Controllers\Api\V1\Address\UpdateController;
 use Illuminate\Support\Facades\Route;
@@ -11,6 +12,12 @@ Route::get(
     uri: '/',
     action: FetchController::class,
 )->name(name: 'fetch');
+
+// Find a address
+Route::get(
+    uri: '/search',
+    action: FindController::class,
+)->name(name: 'search');
 
 // Store a new address
 Route::post(

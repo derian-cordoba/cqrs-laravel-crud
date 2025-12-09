@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\V1\Phone\DestroyController;
 use App\Http\Controllers\Api\V1\Phone\FetchController;
+use App\Http\Controllers\Api\V1\Phone\FindController;
 use App\Http\Controllers\Api\V1\Phone\StoreController;
 use App\Http\Controllers\Api\V1\Phone\UpdateController;
 use Illuminate\Support\Facades\Route;
@@ -11,6 +12,12 @@ Route::get(
     uri: '/',
     action: FetchController::class,
 )->name(name: 'fetch');
+
+// Find a phone
+Route::get(
+    uri: '/search',
+    action: FindController::class,
+)->name(name: 'search');
 
 // Store a new phone
 Route::post(
