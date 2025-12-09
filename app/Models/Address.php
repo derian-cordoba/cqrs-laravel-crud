@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $codigo_postal
  * @property string $pais
  * @property bool $principal
- * @property \DateTimeInterface $creado_en
+ * @property \Illuminate\Support\Carbon $creado_en
  * @property-read CustomUser $customUser
  */
 final class Address extends Model

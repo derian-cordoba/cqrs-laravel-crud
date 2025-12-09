@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources\V1\Address;
 
+use App\Http\Resources\V1\CustomUser\CustomUserResource;
 use App\Models\Address;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -15,7 +16,16 @@ final class AddressResource extends JsonResource
     {
         return [
             'id' => $this->resource->id_direccion,
-            'user' => $this->resource->customUser,
+            $this->mergeWhen(
+                condition: $request->routeIs(patterns: '*.addresses.*'),
+                value: [
+                    'custom_user' => $this->resource->customUser === null
+                        ? null
+                        : new CustomUserResource(
+                            resource: $this->resource->customUser,
+                        ),
+                ],
+            ),
             'type' => $this->resource->tipo,
             'street' => $this->resource->calle,
             'number' => $this->resource->numero,
