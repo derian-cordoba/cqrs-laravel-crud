@@ -6,6 +6,10 @@ Route::prefix('addresses')
     ->name('addresses.')
     ->group(base_path('routes/resources/api/v1/addresses/routes.php'));
 
-    Route::prefix('custom_users')
+Route::prefix('custom_users')
     ->name('custom_users.')
     ->group(base_path('routes/resources/api/v1/custom_users/routes.php'));
+
+Route::prefix('phones')
+    ->name('phones.')
+    ->group(base_path('routes/resources/api/v1/phones/routes.php'));

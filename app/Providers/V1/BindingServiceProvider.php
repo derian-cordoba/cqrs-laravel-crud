@@ -4,6 +4,7 @@ namespace App\Providers\V1;
 
 use Domains\V1\Address\AddressServiceProvider;
 use Domains\V1\CustomUser\CustomUserServiceProvider;
+use Domains\V1\Phones\PhoneServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
 final class BindingServiceProvider extends ServiceProvider
@@ -12,6 +13,7 @@ final class BindingServiceProvider extends ServiceProvider
     {
         $this->registerAddressProvider();
         $this->registerCustomUserProvider();
+        $this->registerPhoneProvider();
     }
 
     private function registerAddressProvider(): void
@@ -25,6 +27,13 @@ final class BindingServiceProvider extends ServiceProvider
     {
         $this->app->register(
             provider: CustomUserServiceProvider::class,
+        );
+    }
+
+    private function registerPhoneProvider(): void
+    {
+        $this->app->register(
+            provider: PhoneServiceProvider::class,
         );
     }
 }

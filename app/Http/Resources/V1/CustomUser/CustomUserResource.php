@@ -3,6 +3,7 @@
 namespace App\Http\Resources\V1\CustomUser;
 
 use App\Http\Resources\V1\Address\AddressCollection;
+use App\Http\Resources\V1\Phone\PhoneCollection;
 use App\Models\CustomUser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -33,7 +34,9 @@ final class CustomUserResource extends JsonResource
             $this->mergeWhen(
                 condition: $request->routeIs(patterns: '*.custom_users.*'),
                 value: [
-                    'phones' => $this->resource->phones,
+                    'phones' => new PhoneCollection(
+                        resource: $this->resource->phones,
+                    ),
                 ],
             ),
 

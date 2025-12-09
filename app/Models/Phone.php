@@ -5,6 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property int $id_telefono
+ * @property int $id_usuario
+ * @property string $tipo
+ * @property string $numero
+ * @property string $compania
+ * @property bool $principal
+ * @property bool $activo
+ * @property \DateTimeInterface $creado_en
+ * @property-read CustomUser $customUser
+ */
 final class Phone extends Model
 {
     protected $table = 'telefono';
