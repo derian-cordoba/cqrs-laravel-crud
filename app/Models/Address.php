@@ -5,6 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+/**
+ * @property int $id_direccion
+ * @property int $id_usuario
+ * @property string $tipo
+ * @property string $calle
+ * @property string $numero
+ * @property string $ciudad
+ * @property string $codigo_postal
+ * @property string $pais
+ * @property bool $principal
+ * @property \DateTimeInterface $creado_en
+ * @property-read CustomUser $customUser
+ */
 final class Address extends Model
 {
     protected $table = 'direccion';
